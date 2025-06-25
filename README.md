@@ -16,10 +16,10 @@
 
 Nama | NRP
 --- | ---
-... | 5027241xxx
-... | 5027241xxx
-... | 5027241xxx
-... | 5027241xxx
+Fika Arka Nuriyah | 5027241071
+Zahra Hafizhah | 5027241121
+Raya Ahmad Syarif | 5027241041
+Hafiz Ramadhan | 5027241096
 
 ## Deskripsi Soal
 
