@@ -48,8 +48,11 @@ ROT13 sangat ringan dan cepat karena hanya memanipulasi karakter berdasarkan pos
 
 ROT13 tidak aman untuk data sensitif, tapi cukup efektif untuk obfuscation (penyamaran) seperti pada nama file.
 **Solusi**
+```
+static void rot13_string(const char *input, char *output);
+static void get_real_path(const char *path, char *real_path);
 
-...
+```
 
 > Insert poin soal...
 
