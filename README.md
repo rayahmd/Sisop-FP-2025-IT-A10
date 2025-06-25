@@ -54,11 +54,11 @@ static void get_real_path(const char *path, char *real_path);
 
 ```
 
-> Insert poin soal...
+> FUSE
 
 **Teori**
 
-...
+Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengintersep aktivitas file secara real-time, termasuk mendeteksi pola enkripsi yang mencurigakan seperti pada serangan ransomware. Dengan memanfaatkan posisi FUSE di user space, sistem dapat memantau dan memproses metadata dan isi file secara fleksibel, tanpa harus memodifikasi kernel.
 
 **Solusi**
 
