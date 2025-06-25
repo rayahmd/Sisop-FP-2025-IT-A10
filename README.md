@@ -38,12 +38,15 @@ Struktur repository:
 
 ## Pengerjaan
 
-> Insert poin soal...
+> ROT13
 
 **Teori**
 
-...
+ROT13 adalah algoritma cipher substitusi monoalfabetik yang termasuk dalam keluarga Caesar Cipher. Setiap huruf dalam alfabet diganti dengan huruf 13 posisi setelahnya dalam alfabet. Karena jumlah huruf dalam alfabet Latin adalah 26, maka ROT13 bersifat involutif (jika dilakukan dua kali akan mengembalikan ke teks asli).
 
+ROT13 sangat ringan dan cepat karena hanya memanipulasi karakter berdasarkan posisi ASCII, tanpa kunci eksternal.
+
+ROT13 tidak aman untuk data sensitif, tapi cukup efektif untuk obfuscation (penyamaran) seperti pada nama file.
 **Solusi**
 
 ...
