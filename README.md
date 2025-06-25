@@ -53,6 +53,7 @@ static void rot13_string(const char *input, char *output);
 static void get_real_path(const char *path, char *real_path);
 
 ```
+Fungsi get_real_path menerjemahkan nama file yang telah di-mount secara virtual menggunakan ROT13 menjadi path asli di filesystem nyata.
 
 > FUSE
 
