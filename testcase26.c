@@ -113,12 +113,6 @@ static int rot13_read(const char *path, char *buf, size_t size, off_t offset,
     return res;
 }
 
-static int rot13_write(const char *path, const char *buf, size_t size, off_t offset,
-                       struct fuse_file_info *fi) {
-    fprintf(stderr, "Gabisa ya huhu\n");
-    return -EROFS; 
-}
-
 static int rot13_release(const char *path, struct fuse_file_info *fi) {
 	(void) path;
 	close(fi->fh);
