@@ -32,8 +32,7 @@ Buatlah FUSE file system yang mengenkripsi nama file menggunakan ROT13. Saat dir
 
 Struktur repository:
 ```
-.
-..
+└── testcase26.c
 ```
 
 ## Pengerjaan
