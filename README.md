@@ -71,5 +71,5 @@ Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengin
 ## Daftar Pustaka
 
 Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/
-Sitasi 2
+Lee, S., Jho, N.-S., Chung, D., & Kim, M. (2021). Rcryptect: Real-time detection of cryptographic function in the user-space filesystem. Computers & Security, 112, 102512. https://doi.org/10.1016/j.cose.2021.102512
 Sitasi 3
