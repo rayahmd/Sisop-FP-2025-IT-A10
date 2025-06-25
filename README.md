@@ -22,10 +22,9 @@ Raya Ahmad Syarif | 5027241041
 Hafiz Ramadhan | 5027241096
 
 ## Deskripsi Soal
+Buatlah FUSE file system yang mengenkripsi nama file menggunakan ROT13. Saat direktori asli di-mount, semua nama file dan folder yang terlihat di dalamnya harus berubah. Misalnya, dokumen.txt menjadi qbxhzra.txt. File system harus bisa menerjemahkan kembali nama yang terenkripsi ini agar file tetap bisa diakses.
 
-> Insert testcase... (contoh dibawah) // hapus line ini
 
-Memahami race condition pada operasi check-then-act. Program membuat 2 thread; tiap thread mencoba mengambil satu-satunya sumber daya yang tersedia dari variabel global stok (nilai awal 1). Jika tanpa mutex, kedua thread bisa lolos pengecekan dan sama-sama mengambil sumber daya, menghasilkan nilai akhir stok menjadi -1.
 
 ### Catatan
 
