@@ -128,10 +128,12 @@ static const struct fuse_operations rot13_oper = {
 };
 
 int main(int argc, char *argv[]) {
-    if (argc < 3) {
-        fprintf(stderr, "Penggunaan: %s <direktori_sumber> <titik_mount>\n", argv[0]);
-        return 1;
-    }
+    const char *src_dir = "rot13source";
+    const char *mnt_dir = "mntrot13";
+
+    mkdir(src_dir, 0755);
+    mkdir(mnt_dir, 0755);
+
 
     rot13_data *data = malloc(sizeof(rot13_data));
     if (data == NULL) {
@@ -139,16 +141,15 @@ int main(int argc, char *argv[]) {
         return 1;
     }
     
-    data->root_dir = realpath(argv[1], NULL);
+    data->root_dir = realpath(src_dir, NULL);
     if(data->root_dir == NULL) {
         perror("realpath");
         free(data);
         return 1;
     }
 
-    argv[1] = argv[2];
-    argv[2] = NULL;
-    argc--;
+    char *fuse_argv[] = { argv[0], (char *)mnt_dir, NULL };
+    int fuse_argc = 2;
 
-    return fuse_main(argc, argv, &rot13_oper, data);
+    return fuse_main(fuse_argc, fuse_argv, &rot13_oper, data);
 }
