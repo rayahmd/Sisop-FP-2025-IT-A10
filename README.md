@@ -12,7 +12,7 @@
 9. Jika ditemukan indikasi kecurangan dalam bentuk apapun di pengerjaan soal final project, maka nilai dianggap 0.
 10. Pengerjaan soal final project sesuai dengan modul yang telah diajarkan.
 
-## Kelompok x
+## Kelompok 10
 
 Nama | NRP
 --- | ---
@@ -70,6 +70,6 @@ Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengin
 
 ## Daftar Pustaka
 
-Sitasi 1
+Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/
 Sitasi 2
 Sitasi 3
