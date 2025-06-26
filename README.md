@@ -27,8 +27,7 @@ Buatlah FUSE file system yang mengenkripsi nama file menggunakan ROT13. Saat dir
 
 
 ### Catatan
-
-> Insert catatan dari pengerjaan kalian... (contoh dibawah) // hapus line ini
+Pengerjaan menggunakan library FUSE3 (Filesystem in Userspace). Enkripsi dilakukan hanya pada nama file dan folder, bukan isi file. Enkripsi yang digunakan adalah ROT13 (shift 13 huruf alfabet). Saat sistem dijalankan, nama file di direktori asli (misalnya percobaan/) akan tampil dalam bentuk terenkripsi di direktori mountpoint (misalnya mountdir/), tetapi tetap bisa diakses seperti biasa. Semua perubahan hanya terjadi secara virtual ketika sistem dijalankan, dan akan hilang saat unmount.
 
 Struktur repository:
 ```
