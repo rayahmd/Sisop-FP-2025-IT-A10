@@ -32,6 +32,7 @@ Pengerjaan menggunakan library FUSE3 (Filesystem in Userspace). Enkripsi dilakuk
 Struktur repository:
 ```
 Sisop-FP-2025-IT-A10/
+├── assets
 ├── README.md
 └── testcase26.c        
 ```
