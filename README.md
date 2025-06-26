@@ -66,7 +66,7 @@ Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengin
 ...
 
 **Video Menjalankan Program**  
-https://github.com/user-attachments/assets/4e12d24b-dc04-40e6-96fd-5fb78aa41f77
+
 
 
 
