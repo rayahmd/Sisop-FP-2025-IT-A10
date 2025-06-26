@@ -63,7 +63,11 @@ Fungsi get_real_path menerjemahkan nama file yang telah di-mount secara virtual 
 Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengintersep aktivitas file secara real-time, termasuk mendeteksi pola enkripsi yang mencurigakan seperti pada serangan ransomware. Dengan memanfaatkan posisi FUSE di user space, sistem dapat memantau dan memproses metadata dan isi file secara fleksibel, tanpa harus memodifikasi kernel.
 
 **Solusi**
-
+```
+static int rot13_readdir(const char *path, void *buf, fuse_fill_dir_t filler, ...);
+static int rot13_open(const char *path, struct fuse_file_info *fi);
+static int rot13_getattr(const char *path, struct stat *stbuf, ...);
+```
 ...
 
 **Video Menjalankan Program**  
