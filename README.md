@@ -49,12 +49,138 @@ ROT13 sangat ringan dan cepat karena hanya memanipulasi karakter berdasarkan pos
 
 ROT13 tidak aman untuk data sensitif, tapi cukup efektif untuk obfuscation (penyamaran) seperti pada nama file.
 **Solusi**
+ Transformasi Karakter Rot13 (rot13_char)
+ sebuah cipher substitusi sederhana yang menggeser huruf sebanyak 13 posisi dalam alfabet. Hanya huruf (a-z, A-Z) yang dipengaruhi, karakter selain huruf dikembalikan tanpa perubahan.
 ```
-static void rot13_string(const char *input, char *output);
-static void get_real_path(const char *path, char *real_path);
+static char rot13_char(char c) {
+    if (c >= 'a' && c <= 'z') {
+        return ((c - 'a' + 13) % 26) + 'a';
+    } else if (c >= 'A' && c <= 'Z') {
+        return ((c - 'A' + 13) % 26) + 'A';
+    }
+    return c;
+}
 
 ```
+Transformasi String Rot13 (rot13_string)
+Fungsi ini menerima string input, menerapkan transformasi rot13_char pada setiap karakter, dan menyimpan hasilnya dalam string output. Fungsi ini bekerja pada string dan menerapkan cipher ROT13 pada seluruh karakter.
+```
+static void rot13_string(const char *input, char *output) {
+    int i;
+    for (i = 0; input[i] != '\0'; i++) {
+        output[i] = rot13_char(input[i]);
+    }
+    output[i] = '\0'; 
+}
+ ```
+Mendapatkan Path Asli dari Path yang Dienkripsi (get_real_path)
+
 Fungsi get_real_path menerjemahkan nama file yang telah di-mount secara virtual menggunakan ROT13 menjadi path asli di filesystem nyata.
+```
+static void get_real_path(const char *path, char *real_path) {
+    char decrypted_path[4096];
+    rot13_string(path, decrypted_path);
+    snprintf(real_path, 4096, "%s%s", ROT13_DATA->root_dir, decrypted_path);
+}
+
+```
+ Mengambil Atribut File atau Direktori (rot13_getattr)
+  Fungsi ini mengambil atribut (misalnya, ukuran file, izin akses) dari file atau direktori. Fungsi ini mendekripsi path dengan get_real_path, kemudian memanggil lstat untuk mendapatkan atribut file yang sebenarnya.
+```
+static int rot13_getattr(const char *path, struct stat *stbuf,
+                         struct fuse_file_info *fi) {
+    (void) fi;
+    int res;
+    char real_path[4096];
+
+    get_real_path(path, real_path);
+
+    res = lstat(real_path, stbuf);
+    if (res == -1) {
+        return -errno;
+    }
+    return 0;
+}
+ 
+```
+ Membaca Isi Direktori (rot13_readdir)
+ Fungsi ini membaca isi dari sebuah direktori. Path direktori didekripsi terlebih dahulu, lalu direktori dibuka. Setiap entri direktori diubah namanya dengan cipher ROT13 sebelum ditambahkan ke dalam daftar direktori yang dikembalikan.
+ ```
+static int rot13_readdir(const char *path, void *buf, fuse_fill_dir_t filler,
+                         off_t offset, struct fuse_file_info *fi,
+                         enum fuse_readdir_flags flags) {
+    (void) offset;
+    (void) fi;
+    (void) flags;
+
+    char real_path[4096];
+    get_real_path(path, real_path);
+
+    DIR *dp = opendir(real_path);
+    if (dp == NULL) {
+        return -errno;
+    }
+
+    struct dirent *de;
+    while ((de = readdir(dp)) != NULL) {
+        struct stat st;
+        memset(&st, 0, sizeof(st));
+        st.st_ino = de->d_ino;
+        st.st_mode = de->d_type << 12;
+        char encrypted_name[256];
+        rot13_string(de->d_name, encrypted_name);
+        
+        if (filler(buf, encrypted_name, &st, 0, 0)) {
+            break;
+        }
+    }
+
+    closedir(dp);
+    return 0;
+}
+  ```
+Membuka File (rot13_open)
+Fungsi ini membuka file. Path file didekripsi terlebih dahulu, lalu file dibuka dengan flag yang ditentukan (fi->flags). Deskriptor file (res) disimpan di dalam fi->fh.
+``` 
+static int rot13_open(const char *path, struct fuse_file_info *fi) {
+    int res;
+    char real_path[4096];
+
+    get_real_path(path, real_path);
+
+    res = open(real_path, fi->flags);
+    if (res == -1) {
+        return -errno;
+    }
+
+    fi->fh = res;
+    return 0;
+}
+
+```
+Membaca Isi File (rot13_read)
+Fungsi ini membaca data dari file. Fungsi ini membaca size byte dari file, dimulai dari offset yang diberikan, dan menyimpannya di dalam buf. Deskriptor file diambil dari fi->fh.
+```
+static int rot13_read(const char *path, char *buf, size_t size, off_t offset,
+                      struct fuse_file_info *fi) {
+    (void) path;
+    int res = pread(fi->fh, buf, size, offset);
+    if (res == -1) {
+        res = -errno;
+    }
+    return res;
+}
+```
+ Melepaskan File (rot13_release)
+ : Fungsi ini melepaskan file setelah selesai digunakan. Fungsi ini menutup file menggunakan deskriptor file yang ada di fi->fh.
+ ```
+static int rot13_release(const char *path, struct fuse_file_info *fi) {
+    (void) path;
+    close(fi->fh);
+    return 0;
+}
+
+```
 
 > FUSE
 
