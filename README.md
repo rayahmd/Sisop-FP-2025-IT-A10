@@ -34,7 +34,6 @@ Struktur repository:
 Sisop-FP-2025-IT-A10/
 ├── README.md
 └── testcase26.c        
-=======
 ```
 
 ## Pengerjaan
@@ -67,7 +66,7 @@ Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengin
 ...
 
 **Video Menjalankan Program**
-...
+[🎥 Tonton video demo](assets/2025-06-25_21-37-09.mkv)
 
 ## Daftar Pustaka
 
