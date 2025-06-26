@@ -77,5 +77,5 @@ static int rot13_getattr(const char *path, struct stat *stbuf, ...);
 
 ## Daftar Pustaka
 
-Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/
+Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/5363/3353
 Lee, S., Jho, N.-S., Chung, D., & Kim, M. (2021). Rcryptect: Real-time detection of cryptographic function in the user-space filesystem. Computers & Security, 112, 102512. https://www.researchgate.net/publication/355787971_Rcryptect_Real-Time_Detection_of_Cryptographic_Function_in_the_User-Space_Filesystem
