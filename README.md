@@ -60,7 +60,8 @@ Fungsi get_real_path menerjemahkan nama file yang telah di-mount secara virtual 
 
 **Teori**
 
-Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengintersep aktivitas file secara real-time, termasuk mendeteksi pola enkripsi yang mencurigakan seperti pada serangan ransomware. Dengan memanfaatkan posisi FUSE di user space, sistem dapat memantau dan memproses metadata dan isi file secara fleksibel, tanpa harus memodifikasi kernel.
+Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengintersep aktivitas file secara real-time, termasuk mendeteksi pola enkripsi yang mencurigakan seperti pada serangan ransomware. Dengan memanfaatkan posisi FUSE di user space, sistem dapat memantau dan memproses metadata dan isi file secara fleksibel, tanpa harus memodifikasi kernel. 
+Jurnal ini menjelaskan bagaimana komponen sistem berkas seperti Virtual Filesystem Switch (VFS) dapat dipindahkan dari kernel ke userspace menggunakan FUSE. Dengan FUSE, pengembang dapat membuat sistem berkas baru tanpa akses kernel, lebih aman, dan portabel. Salah satu implementasi populer adalah EncFS, yang memungkinkan enkripsi file. Konsep ini sejalan dengan proyek kamu, karena kamu mengenkripsi nama file menggunakan ROT13 di lapisan userspace menggunakan FUSE.
 
 **Solusi**
 ```
@@ -78,4 +79,4 @@ static int rot13_getattr(const char *path, struct stat *stbuf, ...);
 ## Daftar Pustaka
 
 Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/5363/3353
-Lee, S., Jho, N.-S., Chung, D., & Kim, M. (2021). Rcryptect: Real-time detection of cryptographic function in the user-space filesystem. Computers & Security, 112, 102512. https://www.researchgate.net/publication/355787971_Rcryptect_Real-Time_Detection_of_Cryptographic_Function_in_the_User-Space_Filesystem
+Faber, Ł., & Boryczko, K. (2013). Portable userspace virtual filesystem switch. Computer Science, 14(3), 345–360. https://doi.org/10.7494/csci.2013.14.3.345
