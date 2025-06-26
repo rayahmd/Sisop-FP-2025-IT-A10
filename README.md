@@ -33,9 +33,8 @@ Buatlah FUSE file system yang mengenkripsi nama file menggunakan ROT13. Saat dir
 Struktur repository:
 ```
 SIsop-FP-2025-A10/
-├── testcase26.c       
-├── README.md       
-└── video_demo.mp4              
+├── testcase26.c
+└── README.md           
 ```
 
 ## Pengerjaan
