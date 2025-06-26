@@ -79,4 +79,5 @@ static int rot13_getattr(const char *path, struct stat *stbuf, ...);
 ## Daftar Pustaka
 
 Kurnia, A., Prasetyo, R., & Lestari, D. (2025). Analisis Performa Beaufort Cipher dan ROT13 dalam Proses Enkripsi dan Dekripsi pada Data Teks. Jurnal Media Informatika, 10(1), 45–52. https://ejournal.sisfokomtek.org/index.php/jumin/article/view/5363/3353
+
 Faber, Ł., & Boryczko, K. (2013). Portable userspace virtual filesystem switch. Computer Science, 14(3), 345–360. https://doi.org/10.7494/csci.2013.14.3.345
