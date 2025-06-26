@@ -31,7 +31,30 @@ Buatlah FUSE file system yang mengenkripsi nama file menggunakan ROT13. Saat dir
 > Insert catatan dari pengerjaan kalian... (contoh dibawah) // hapus line ini
 
 Struktur repository:
+- Sebelum dijalankan/dicompile
 ```
+├── mountdir
+├── percobaan
+│   ├── ajaapa.pdf
+│   ├── apaaja.txt
+│   └── kitakesana
+│       └── rumahkerumah.txt
+└── testcase26.c
+```
+
+- Sesudah dijalankan
+```
+├── mountdir
+│   ├── ncnnwn.gkg
+│   ├── nwnncn.cqs
+│   └── xvgnxrfnan
+│       └── ehznuxrehznu.gkg
+├── percobaan
+│   ├── ajaapa.pdf
+│   ├── apaaja.txt
+│   └── kitakesana
+│       └── rumahkerumah.txt
+├── testcase26
 └── testcase26.c
 ```
 
