@@ -34,6 +34,7 @@ Struktur repository:
 Sisop-FP-2025-IT-A10/
 ├── README.md
 └── testcase26.c        
+=======
 ```
 
 ## Pengerjaan
