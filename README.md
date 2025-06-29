@@ -186,7 +186,7 @@ static int rot13_release(const char *path, struct fuse_file_info *fi) {
 **Teori**
 
 Sistem file berbasis FUSE (Filesystem in Userspace) dapat digunakan untuk mengintersep aktivitas file secara real-time, termasuk mendeteksi pola enkripsi yang mencurigakan seperti pada serangan ransomware. Dengan memanfaatkan posisi FUSE di user space, sistem dapat memantau dan memproses metadata dan isi file secara fleksibel, tanpa harus memodifikasi kernel. 
-Jurnal ini menjelaskan bagaimana komponen sistem berkas seperti Virtual Filesystem Switch (VFS) dapat dipindahkan dari kernel ke userspace menggunakan FUSE. Dengan FUSE, pengembang dapat membuat sistem berkas baru tanpa akses kernel, lebih aman, dan portabel. Salah satu implementasi populer adalah EncFS, yang memungkinkan enkripsi file. Konsep ini sejalan dengan proyek kamu, karena kamu mengenkripsi nama file menggunakan ROT13 di lapisan userspace menggunakan FUSE.
+Jurnal ini menjelaskan bagaimana komponen sistem berkas seperti Virtual Filesystem Switch (VFS) dapat dipindahkan dari kernel ke userspace menggunakan FUSE. Dengan FUSE, pengembang dapat membuat sistem berkas baru tanpa akses kernel, lebih aman, dan portabel. Salah satu implementasi populer adalah EncFS, yang memungkinkan enkripsi file. Konsep ini sejalan dengan proyek kami, karena dapat mengenkripsi nama file menggunakan ROT13 di lapisan userspace menggunakan FUSE.
 
 **Solusi**
 ```
